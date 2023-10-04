@@ -1,6 +1,13 @@
 package com.demo.myHomeLibrary.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
@@ -13,7 +20,7 @@ public class Book {
     @Column(name = "id")
     private Long id;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private BookCategory category;
 
@@ -34,7 +41,4 @@ public class Book {
 
     @Column(name = "image_url")
     private String imageUrl;
-
-//    @Column(name = "categoryId")
-//    private Long categoryId;
 }
